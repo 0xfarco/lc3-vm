@@ -169,6 +169,13 @@ uint16_t mem_read(uint16_t address)
     return memory[address];
 }
 
+void handle_interrupt(int signal)
+{
+    restore_input_buffering();
+    printf("\n");
+    exit(-2);
+}
+
 int main(int argc, const char* argv[]) {
     if (argc < 2) {
         printf("lc3 [image-file1] ...\n");
